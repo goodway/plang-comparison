@@ -56,7 +56,6 @@ if (cluster.isMaster) {
             const id = Math.floor(Math.random() * (40000000 - 30000000 + 1)) + 30000000;
             const input = 5.0;
 
-            // Используем Promise.all для параллельного выполнения
             const [result1, result2, result3] = await Promise.all([
                 complexCalculation1(input),
                 complexCalculation2(input),

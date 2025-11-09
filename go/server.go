@@ -16,7 +16,6 @@ type ResponseBody struct {
 	Tasks  map[string]float64 `json:"tasks"`
 }
 
-// Функции с реальными математическими вычислениями
 func complexCalculation1(data float64) float64 {
 	result := float64(data)*2 + math.Sin(data)*math.Cos(data)
 
