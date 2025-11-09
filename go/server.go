@@ -91,7 +91,6 @@ func processRequest(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	runtime.GOMAXPROCS(28)
 
 	mux := http.NewServeMux()
 	mux.HandleFunc("/process", processRequest)
