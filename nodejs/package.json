@@ -1,0 +1,20 @@
+{
+  "name": "fastify-coroutine-server",
+  "version": "1.0.0",
+  "description": "Math calculation server using Fastify",
+  "main": "server_base.js",
+  "scripts": {
+    "start": "node server_base.js",
+    "dev": "nodemon server_base.js"
+  },
+  "dependencies": {
+    "fastify": "^5.6.0",
+    "@fastify/cors": "^11.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "keywords": ["fastify", "math", "api"],
+  "author": "Your Name",
+  "license": "MIT"
+}
