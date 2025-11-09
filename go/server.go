@@ -6,7 +6,6 @@ import (
 	"math"
 	"math/rand"
 	"net/http"
-	"runtime"
 	"time"
 )
 
