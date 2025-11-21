@@ -1,11 +1,14 @@
 {
-  "name": "fastify-coroutine-server",
+  "name": "fastify-parallel-server",
   "version": "1.0.0",
   "description": "Math calculation server using Fastify",
-  "main": "server_base.js",
+  "main": "server.js",
+  "type": "module",
   "scripts": {
-    "start": "node server_base.js",
-    "dev": "nodemon server_base.js"
+    "start": "nodemon server.js",
+    "start:bun": "bun server.js",
+    "dev": "nodemon server.js",
+    "dev:bun": "bun server.js"
   },
   "dependencies": {
     "fastify": "^5.6.0",
@@ -14,7 +17,5 @@
   "devDependencies": {
     "nodemon": "^3.1.10"
   },
-  "keywords": ["fastify", "math", "api"],
-  "author": "Your Name",
   "license": "MIT"
 }
