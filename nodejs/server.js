@@ -15,7 +15,7 @@ function run(worker, data) {
   return new Promise((resolve, reject) => {
     const onMessage = (msg) => {
       worker.off("error", onError);
-      resolve(msg.result);
+      resolve(msg);
     };
     const onError = (err) => {
       worker.off("message", onMessage);
