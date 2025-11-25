@@ -1,7 +1,8 @@
-import Fastify from "fastify";
+import { server } from "kitojs";
+
 import { Worker } from "worker_threads";
 
-const fastify = Fastify();
+const app = server();
 
 const w1 = new Worker("./worker.js");
 const w2 = new Worker("./worker.js");
@@ -28,7 +29,7 @@ function run(worker, data) {
   });
 }
 
-fastify.get("/process", async (_request, reply) => {
+app.get("/process", async (ctx) => {
   try {
     const id = Math.floor(Math.random() * (40000000 - 30000000 + 1)) + 30000000;
     const input = 5.0;
@@ -39,7 +40,7 @@ fastify.get("/process", async (_request, reply) => {
       run(w3, { input, fn: "complexCalculation3" }),
     ]);
 
-    return reply.type("application/json").send({
+    return ctx.res.json({
       result: r1 + r2 + r3,
       id: id,
       tasks: {
@@ -50,14 +51,10 @@ fastify.get("/process", async (_request, reply) => {
     });
   } catch (error) {
     console.error(error);
-    return reply.status(500).send({ error: "Internal server error" });
+    return ctx.res.status(500).json({ error: "Internal server error" });
   }
 });
 
-fastify.listen({ port: 8098, host: "0.0.0.0" }, (err, address) => {
-  if (err) {
-    console.error(err);
-    process.exit(1);
-  }
-  console.log(`[${process.pid}] Server started on ${address}`);
+app.listen(8098, "127.0.0.1", () => {
+  console.log(`[${process.pid}] Server started on 127.0.0.1:8098`);
 });

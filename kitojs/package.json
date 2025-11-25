@@ -1,0 +1,13 @@
+{
+  "name": "kitojs",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "nodemon server.js",
+    "start:bun": "bun server.js"
+  },
+  "dependencies": {
+    "kitojs": "^1.0.0-alpha.4"
+  }
+}
